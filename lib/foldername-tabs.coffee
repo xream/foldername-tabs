@@ -74,6 +74,7 @@ parsePath = (path) ->
     else # no space limitation
       result.foldername += splitted.join(sep) + sep
   result.foldername += lastFolder
+  result.foldername = result.foldername.replace(new RegExp("^/#{process.env.HOME.replace(/^\/Users\//, '')}/"), '~')
   return result
 
 processAllTabs = (revert=false)->
